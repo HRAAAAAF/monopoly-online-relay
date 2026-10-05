@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: monopoly-room-relay
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-relay.txt
+    startCommand: python -m net.relay
+    healthCheckPath: /healthz
+    numInstances: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.0

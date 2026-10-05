@@ -1,0 +1,7 @@
+FROM python:3.14-slim
+WORKDIR /app
+COPY requirements-relay.txt .
+RUN pip install --no-cache-dir -r requirements-relay.txt
+COPY net ./net
+EXPOSE 10000
+CMD ["python", "-m", "net.relay"]
